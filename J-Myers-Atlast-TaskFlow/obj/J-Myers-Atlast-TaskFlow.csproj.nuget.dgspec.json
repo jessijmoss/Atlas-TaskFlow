@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jessj\\source\\repos\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj": {}
+    "C:\\Users\\jessj\\OneDrive\\Documents\\GitHub\\Atlas-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jessj\\source\\repos\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj": {
+    "C:\\Users\\jessj\\OneDrive\\Documents\\GitHub\\Atlas-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jessj\\source\\repos\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj",
+        "projectUniqueName": "C:\\Users\\jessj\\OneDrive\\Documents\\GitHub\\Atlas-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj",
         "projectName": "J-Myers-Atlast-TaskFlow",
-        "projectPath": "C:\\Users\\jessj\\source\\repos\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj",
+        "projectPath": "C:\\Users\\jessj\\OneDrive\\Documents\\GitHub\\Atlas-TaskFlow\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow.csproj",
         "packagesPath": "C:\\Users\\jessj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jessj\\source\\repos\\J-Myers-Atlast-TaskFlow\\J-Myers-Atlast-TaskFlow\\obj\\",
+        "outputPath": "C:\\Users\\jessj\\OneDrive\\Documents\\GitHub\\Atlas-TaskFlow\\J-Myers-Atlast-TaskFlow\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
