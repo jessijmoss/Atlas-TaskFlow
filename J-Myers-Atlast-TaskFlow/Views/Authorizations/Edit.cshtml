@@ -1,0 +1,73 @@
+﻿@model J_Myers_Atlast_TaskFlow.Models.AuthorizationTask
+
+@{
+    ViewData["Title"] = "Edit Authorization Task";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0 p-4">
+            <h2 class="fw-bold text-dark mb-3">Update Authorization Task</h2>
+            <p class="text-muted mb-4">Modify the workflow stage, clinical notes, or procedure details below.</p>
+
+            <form asp-action="Edit" method="post">
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <!-- Hidden fields to preserve Primary Key, Foreign Key, and required backend fields -->
+                <input type="hidden" asp-for="TaskId" />
+                <input type="hidden" asp-for="Title" />
+                <input type="hidden" asp-for="Description" />
+                <input type="hidden" asp-for="Priority" />
+                <input type="hidden" asp-for="ProjectId" />
+
+                <div class="mb-3">
+                    <label asp-for="PatientCaseNumber" class="form-label fw-bold">Patient Case Number</label>
+                    <input asp-for="PatientCaseNumber" class="form-control" />
+                    <span asp-validation-for="PatientCaseNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CptCode" class="form-label fw-bold">CPT Code</label>
+                    <input asp-for="CptCode" class="form-control" />
+                    <span asp-validation-for="CptCode" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Stage" class="form-label fw-bold">Workflow Stage</label>
+                    <select asp-for="Stage" class="form-select">
+                        <option value="Initiation">Initiation</option>
+                        <option value="Clinicals Submitted">Clinicals Submitted</option>
+                        <option value="Submitted to Payer">Submitted to Payer</option>
+                        <option value="Pending Determination">Pending Determination</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                    <span asp-validation-for="Stage" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DueDate" class="form-label fw-bold">Due Date</label>
+                    <input asp-for="DueDate" class="form-control" type="date" />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Notes" class="form-label fw-bold">Clinical & Payer Notes</label>
+                    <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input class="form-check-input" asp-for="IsCompleted" />
+                    <label class="form-check-label fw-bold" asp-for="IsCompleted">
+                        Mark Authorization Completed
+                    </label>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to Dashboard</a>
+                    <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

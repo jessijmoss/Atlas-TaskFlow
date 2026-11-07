@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-7">
+        <div class="card shadow-sm border-danger p-4 text-center">
+            <h2 class="fw-bold text-danger mb-3">Access Denied (403 Forbidden)</h2>
+            <p class="text-dark fs-5 mb-2">
+                Your current clinic role does not have permission to perform this action.
+            </p>
+            <p class="text-muted mb-4">
+                Atlas enforces Least Privilege access control. Only authorized Prior Authorization Specialists, Denial Specialists, or Management may create, modify, or remove protected authorization records.
+            </p>
+            <div>
+                <a asp-controller="Authorizations" asp-action="Index" class="btn btn-primary px-4">Return to Authorization Queue</a>
+            </div>
+        </div>
+    </div>
+</div>

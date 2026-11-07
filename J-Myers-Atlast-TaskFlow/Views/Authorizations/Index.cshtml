@@ -1,0 +1,87 @@
+﻿@model IEnumerable<J_Myers_Atlast_TaskFlow.Models.AuthorizationTask>
+
+@{
+    ViewData["Title"] = "Prior Authorization Tasks";
+    var currentUser = User.Identity?.Name ?? "";
+    var canCreate = User.IsInRole("Specialist") || User.IsInRole("Management");
+    var isManager = User.IsInRole("Management");
+    var isDenialSpecialist = User.IsInRole("DenialSpecialist");
+    var isSpecialist = User.IsInRole("Specialist");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="fw-bold text-dark">Prior Authorizations</h1>
+        <p class="text-muted mb-0">Manage, track, and monitor outpatient prior authorization workflows.</p>
+    </div>
+    @if (canCreate)
+    {
+        <a asp-action="Create" class="btn btn-primary btn-lg">+ New Authorization Task</a>
+    }
+    else
+    {
+        <span class="badge bg-light text-dark border px-3 py-2">Read / Review Mode (@(User.FindFirst("DisplayName")?.Value))</span>
+    }
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Patient Case # (PCN)</th>
+                    <th>CPT Code</th>
+                    <th>Stage</th>
+                    <th>Due Date</th>
+                    <th>Notes</th>
+                    <th>Owner / Audit</th>
+                    <th class="pe-4 text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="7" class="text-center py-4 text-muted">
+                            No authorization tasks found.
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        var isOwnerOrUnassigned = item.Title == null ||
+                                                  !item.Title.Contains("(Owner:") ||
+                                                  item.Title.Contains($"(Owner: {currentUser})");
+                        var canEditItem = isManager || isDenialSpecialist || (isSpecialist && isOwnerOrUnassigned);
+
+                        <tr>
+                            <td class="ps-4 fw-bold text-primary">@item.PatientCaseNumber</td>
+                            <td><span class="badge bg-secondary">@item.CptCode</span></td>
+                            <td>
+                                <span class="badge bg-info text-dark">@item.Stage</span>
+                            </td>
+                            <td>@item.DueDate.ToShortDateString()</td>
+                            <td class="text-muted">@item.Notes</td>
+                            <td>
+                                <small class="text-muted">@item.Description</small>
+                            </td>
+                            <td class="pe-4 text-end">
+                                <a asp-action="Details" asp-route-id="@item.TaskId" class="btn btn-sm btn-outline-secondary me-1">Details</a>
+                                @if (canEditItem)
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.TaskId" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+                                }
+                                @if (isManager)
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.TaskId" class="btn btn-sm btn-outline-danger">Delete</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

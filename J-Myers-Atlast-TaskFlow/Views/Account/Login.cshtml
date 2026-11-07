@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Staff Sign In";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-5">
+        <div class="card shadow-sm border-0 p-4">
+            <h2 class="fw-bold text-dark mb-2">Atlas Staff Sign In</h2>
+            <p class="text-muted mb-4">Authenticate to access the Prior Authorization Queue (No PHI stored).</p>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger py-2">@ViewBag.ErrorMessage</div>
+            }
+
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="username">Staff Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="e.g., zenora, tyree, deasia, jacoby, joann" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" value="Password123!" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 mt-2">Sign In to Atlas</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card bg-light border-0 shadow-sm p-4">
+            <h5 class="fw-bold text-dark mb-3">Approved Clinic Personas (Sprint 6 Test Accounts)</h5>
+            <p class="small text-muted mb-2">Default Password for all accounts: <code>Password123!</code></p>
+            <ul class="list-group list-group-flush small">
+                <li class="list-group-item bg-transparent px-0">
+                    <strong>zenora</strong> — Zenora Jenkins (<code>Specialist</code>)<br />
+                    <span class="text-muted">Full intake, clinical submission & stage updates</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0">
+                    <strong>tyree</strong> — Tyree Vance (<code>Management</code>)<br />
+                    <span class="text-muted">Full oversight, compliance & record deletion</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0">
+                    <strong>deasia</strong> — De’Asia King (<code>SurgicalCoordinator</code>)<br />
+                    <span class="text-muted">Read-only surgical queue & PCN status lookup</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0">
+                    <strong>jacoby</strong> — Jacoby Montana (<code>Admissions</code>)<br />
+                    <span class="text-muted">Read-only check-in & NCN note verification</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0">
+                    <strong>joann</strong> — Joann Morales (<code>DenialSpecialist</code>)<br />
+                    <span class="text-muted">View audit trail & update denial/appeal notes</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
