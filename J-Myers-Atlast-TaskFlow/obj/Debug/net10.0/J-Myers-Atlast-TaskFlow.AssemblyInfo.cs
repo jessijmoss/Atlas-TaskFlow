@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("J-Myers-Atlast-TaskFlow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aead2acbd699456583058c6f219e7d25980db40")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e630de1f1b59f911777ac4b2ef3c75f9d5c83eba")]
 [assembly: System.Reflection.AssemblyProductAttribute("J-Myers-Atlast-TaskFlow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("J-Myers-Atlast-TaskFlow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
